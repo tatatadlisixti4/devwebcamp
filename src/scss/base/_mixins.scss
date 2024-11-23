@@ -46,3 +46,13 @@
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
 }
+@mixin contenedor {
+    //max-width: 120rem;
+    //width: 95%;
+    width: min(95%, 120rem); // Una mezcla de las 2 anteriores
+    margin: 0 auto;
+}
+@mixin contenedor-sm {
+    width: min(95%, 60rem); // Una mezcla de las 2 anteriores
+    margin: 0 auto;
+}
