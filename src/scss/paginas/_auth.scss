@@ -1,5 +1,8 @@
 @use '../base/mixins' as m;
-.auth {
-    @include m.contenedor-sm;
+    .auth {
+        @include m.contenedor-sm;
+        &__heading {
+            @include m.nombre-pagina;
+        }
 
-}
+    }
