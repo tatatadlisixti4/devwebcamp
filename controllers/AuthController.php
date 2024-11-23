@@ -8,15 +8,11 @@ use MVC\Router;
 
 class AuthController {
     public static function login(Router $router) {
-
         $alertas = [];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
             $usuario = new Usuario($_POST);
-
             $alertas = $usuario->validarLogin();
-            
             if(empty($alertas)) {
                 // Verificar quel el usuario exista
                 $usuario = Usuario::where('email', $usuario->email);
@@ -40,7 +36,6 @@ class AuthController {
                 }
             }
         }
-
         $alertas = Usuario::getAlertas();
         
         // Render a la vista 
@@ -63,9 +58,7 @@ class AuthController {
         $usuario = new Usuario;
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $usuario->sincronizar($_POST);
-            
             $alertas = $usuario->validar_cuenta();
 
             if(empty($alertas)) {
@@ -90,7 +83,6 @@ class AuthController {
                     // Enviar email
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarConfirmacion();
-                    
 
                     if($resultado) {
                         header('Location: /mensaje');
@@ -119,7 +111,6 @@ class AuthController {
                 $usuario = Usuario::where('email', $usuario->email);
 
                 if($usuario && $usuario->confirmado) {
-
                     // Generar un nuevo token
                     $usuario->crearToken();
                     unset($usuario->password2);
@@ -130,7 +121,6 @@ class AuthController {
                     // Enviar el email
                     $email = new Email( $usuario->email, $usuario->nombre, $usuario->token );
                     $email->enviarInstrucciones();
-
 
                     // Imprimir la alerta
                     // Usuario::setAlerta('exito', 'Hemos enviado las instrucciones a tu email');
@@ -154,7 +144,6 @@ class AuthController {
     public static function reestablecer(Router $router) {
 
         $token = s($_GET['token']);
-
         $token_valido = true;
 
         if(!$token) header('Location: /');
@@ -166,7 +155,6 @@ class AuthController {
             Usuario::setAlerta('error', 'Token No Válido, intenta de nuevo');
             $token_valido = false;
         }
-
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
