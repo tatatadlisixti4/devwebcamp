@@ -21,12 +21,13 @@
                     id="password"
                     name="password"
             />
-            <input
-                type="submit"
-                class="formulario__submit"
-                value="Iniciar Sesión"
-            />
         </div>
+
+        <input
+            type="submit"
+            class="formulario__submit"
+            value="Iniciar Sesión"
+        />
         <div class="acciones">
             <a href="/registro" class="acciones__enlace">¿Aún no tienes una cuenta? Obtén una</a>
             <a href="/olvide" class="acciones__enlace">¿Olvidaste tu Password?</a>

@@ -1,0 +1,29 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+@use 'sass:color';
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    &__campo {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    &__label {
+        display: block;
+        font-size: 1.8rem;
+        color: rgba(v.$negro, .8);
+    }
+    &__input {
+        padding: 1rem;
+        border: 1px solid color.adjust(v.$gris, $lightness: 20%);
+        border-radius: .5rem;
+    }
+    &__submit {
+        @include m.boton(v.$azul, v.$blanco);
+        width: auto;
+        align-self: flex-start;
+    }
+}
