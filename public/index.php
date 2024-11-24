@@ -7,7 +7,6 @@ use Controllers\AuthController;
 
 $router = new Router();
 
-
 // Login
 $router->get('/login', [AuthController::class, 'login']);
 $router->post('/login', [AuthController::class, 'login']);
