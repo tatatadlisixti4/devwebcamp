@@ -4,6 +4,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    height: 100%; // Darle al html este valor implica que los hijos puedan tomar todo el espacio en el eje y.
 }
 *, *:before, *:after {
     box-sizing: inherit;
