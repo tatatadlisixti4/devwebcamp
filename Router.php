@@ -36,18 +36,21 @@ class Router
         }
     }
 
-    public function render($view, $datos = [])
-    {
+    public function render($view, $datos = []) {
         foreach ($datos as $key => $value) {
             $$key = $value; 
         }
 
-        ob_start(); 
-
+        ob_start();
         include_once __DIR__ . "/views/$view.php";
-
         $contenido = ob_get_clean(); // Limpia el Buffer
 
+        // Utilizar el layout de acuerdo a la url
+        $url_actual = $_SERVER['PATH_INFO'] ?? '/';
+        if(str_contains($url_actual, '/admin')) {
+            include_once __DIR__ . '/views/admin-layout.php';
+            return;
+        }
         include_once __DIR__ . '/views/layout.php';
     }
 }
