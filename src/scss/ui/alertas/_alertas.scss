@@ -17,6 +17,6 @@
     &__exito {
         background-color: color.adjust(v.$verde, $lightness: 40%);
         border-left: .5rem solid v.$verde;
-        color: v.$verde;
+        color: color.adjust(v.$verde, $lightness: -20%);
     }
 }
