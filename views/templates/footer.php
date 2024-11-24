@@ -11,22 +11,22 @@
         </div>
 
         <nav class="menu-redes">
-            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank">
+            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="#">
                 <span class="menu-redes__ocultar">Facebook</span>
             </a>
-            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank">
+            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="#">
                 <span class="menu-redes__ocultar">Twitter</span>
             </a>
-            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank">
+            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="#">
                 <span class="menu-redes__ocultar">YouTube</span>
             </a>
-            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank">
+            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="#">
                 <span class="menu-redes__ocultar">Instagram</span>
             </a>
-            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank">
+            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="#">
                 <span class="menu-redes__ocultar">Tiktok</span>
             </a>
-            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank">
+            <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="#">
                 <span class="menu-redes__ocultar">Github</span>
             </a>
         </nav>
