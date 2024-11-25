@@ -9,6 +9,10 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class PonentesController {
     public static function index(Router $router) {
+        if(!is_admin()) {
+            header('Location: /login');
+        }
+
         $ponentes = Ponente::all();
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
@@ -16,10 +20,17 @@ class PonentesController {
         ]);
     }
     public static function crear(Router $router) {
+        if(!is_admin()) {
+            header('Location: /login');
+        }
+
         $alertas = [];
         $ponente = new Ponente;
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if(!is_admin()) {
+                header('Location: /login');
+            }
             // Leer imagen
             if(!empty($_FILES['imagen']['tmp_name'])) {
                 $carpeta_imagenes = '../public/img/speakers';
@@ -61,6 +72,10 @@ class PonentesController {
     }
 
     public static function editar(Router $router) {
+        if(!is_admin()) {
+            header('Location: /login');
+        }
+
         $alertas = [];
         // Validar Id
         $id = $_GET['id'];
@@ -77,6 +92,10 @@ class PonentesController {
         $ponente->imagen_actual = $ponente->imagen;
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if(!is_admin()) {
+                header('Location: /login');
+            }
+
             if(!empty($_FILES['imagen']['tmp_name'])) {
                 $carpeta_imagenes = '../public/img/speakers';
                 // Crear la carpeta si no existe
@@ -115,7 +134,13 @@ class PonentesController {
     }
 
     public static function eliminar() {
+        if(!is_admin()) {
+            header('Location: /login');
+        }
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if(!is_admin()) {
+                header('Location: /login');
+            }
             $id = $_POST['id'];
             $ponente = Ponente::find($id);
             if(!isset($ponente)) {
