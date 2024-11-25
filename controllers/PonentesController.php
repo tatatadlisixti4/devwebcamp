@@ -2,15 +2,16 @@
 
 namespace Controllers;
 
-
 use Model\Ponente;
 use MVC\Router;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class PonentesController {
     public static function index(Router $router) {
+        $ponentes = Ponente::all();
         $router->render('admin/ponentes/index', [
-            'titulo' => 'Ponentes / Conferencistas'
+            'titulo' => 'Ponentes / Conferencistas',
+            'ponentes' => $ponentes
         ]);
     }
     public static function crear(Router $router) {
