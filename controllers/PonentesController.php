@@ -31,14 +31,23 @@ class PonentesController {
 
                 $nombre_imagen = md5(uniqid(rand(), true));
                 $_POST['imagen'] = $nombre_imagen;
-                debuguear($_POST);
             }
-
+            $_POST['redes'] = json_encode($_POST['redes'], JSON_UNESCAPED_SLASHES);
             $ponente->sincronizar($_POST);
+            // Validar
             $alertas = $ponente->validar();
+            // Guardar el registro
+            if(empty($alertas)) {
+                // Guardar las imagenes
+                $imagen_png->save($carpeta_imagenes . '/' . $nombre_imagen . '.png');
+                $imagen_webp->save($carpeta_imagenes . '/' . $nombre_imagen . '.webp');
+                // Guardar en la base de datos
+                $resultado = $ponente->guardar();
+                if($resultado) {
+                    header('Location: /admin/ponentes');
+                }
+            }
         }
-
-
 
         $router->render('admin/ponentes/crear', [
             'titulo' => 'Registrar Ponente',

@@ -15,8 +15,6 @@ class Ponente extends ActiveRecord {
     public $tags;
     public $redes;
 
-    public $password_actual;
-    public $password_nuevo;
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
