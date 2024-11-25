@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+
 use Model\Ponente;
 use MVC\Router;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -71,6 +72,8 @@ class PonentesController {
         if(!$ponente) {
             header('Location: /admin/ponentes');
         }
+        $ponente->imagen_actual = $ponente->imagen;
+
         $router->render('admin/ponentes/editar', [
             'titulo' => 'Actualizar Ponente',
             'alertas' => $alertas,

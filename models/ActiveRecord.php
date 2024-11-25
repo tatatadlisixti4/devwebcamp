@@ -1,5 +1,6 @@
 <?php
 namespace Model;
+#[\AllowDynamicProperties] // Permite propiedades dinámicas en esta clase
 class ActiveRecord {
 
     // Base DE DATOS
