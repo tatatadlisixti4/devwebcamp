@@ -65,6 +65,11 @@
             border-bottom-left-radius: 0;
         }
     }
+
+    &__listado {
+        @include m.tags;
+    }
+
     &__submit {
         @include m.boton(v.$azul, v.$blanco);
         width: auto;
@@ -74,4 +79,6 @@
             width: 100%;
         }
     }
+
+
 }
