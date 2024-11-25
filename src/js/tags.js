@@ -11,6 +11,14 @@
         const tagsInputHidden = $('[name="tags"]');
 
         let tags = [];
+
+        // Recuperar del input oculto
+        if(tagsInputHidden.value !== '') {
+            tags = tagsInputHidden.value.split(',');
+            console.log(tags)
+            mostrarTags();
+        }
+
         // Escuchar los cambios en el input
         $$$(tagsInput, 'keypress', guardarTag);
 
