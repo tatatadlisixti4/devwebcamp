@@ -17,8 +17,6 @@ class PonentesController {
         $total = Ponente::total();
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total);
 
-        debuguear($paginacion->pagina_siguiente());
-
         if(!is_admin()) {
             header('Location: /login');
         }
@@ -26,7 +24,8 @@ class PonentesController {
         $ponentes = Ponente::all();
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
-            'ponentes' => $ponentes
+            'ponentes' => $ponentes,
+            'paginacion' => $paginacion->paginacion()
         ]);
     }
     public static function crear(Router $router) {
