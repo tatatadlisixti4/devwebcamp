@@ -66,6 +66,10 @@
             border-bottom-left-radius: 0;
         }
     }
+    &__radio {
+        display: flex;
+        gap: 2rem;
+    }
 
     &__texto {
         margin-top: 3rem;
